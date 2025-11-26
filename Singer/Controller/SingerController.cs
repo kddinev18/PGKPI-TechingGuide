@@ -1,4 +1,5 @@
-﻿using Singer.DomainModel.Base;
+﻿using Microsoft.AspNetCore.Authorization;
+using Singer.DomainModel.Base;
 using Singer.DomainModel.Filters;
 using Singer.DomainModel.RequestDTO;
 using Singer.Infrastructure.Services;
@@ -18,6 +19,7 @@ public class SingerController : Controller
 
 
     [HttpPost]
+    [Authorize]
     public IActionResult GetAll([FromBody] BaseFilter<SingerFilter> filters)
     {
         return Ok(_singerService.GetAll(filters));

@@ -1,8 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using Singer.Persistance.Data.Entities;
 
 namespace Singer.Persistance.Data;
 
-public class ApplicationDbContext : DbContext
+public class ApplicationDbContext : IdentityDbContext<User, IdentityRole, string>
 {
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
